@@ -11,13 +11,12 @@ from urllib.request import urlopen
 
 # Interface to pull results from web api
 def web_service_interface(url, lat = 0, lon = 0):
-
 # Check if coordinates have been supplied
 # If so it means function has been called by iss_overhead function
 # and we want to parse coordinates onto the URL
     if ((lat > 0) or (lat < 0)) and ((lon > 0) or (lon < 0)):
         url = url + '?lat=' + str(lat) + '&lon=' + str(lon)
-        
+
     response = urlopen(url)
     result = json.loads(response.read())
     return result
@@ -37,6 +36,7 @@ def iss_people():
         print("Name:  " + p['name'] + "\nCraft: " + p['craft'] + "\n")
 
     print('------------------------------------')
+
 
 def iss_location():
 # Call web service to obtain details of ISS location
@@ -74,6 +74,7 @@ def iss_location():
 # Call function to check when ISS is next overhead
 # Call it here so we can use the same map
     iss_overhead()
+    
 # Mainloop prevents the map from closing automatically
     turtle.mainloop()
 
