@@ -61,14 +61,20 @@ def iss_location():
 # Move turtle to current ISS coords
     iss.penup()
     iss.goto(lon, lat)
+
+# Call function to check when ISS is next overhead
+# Call it here so we can use the same map
     iss_overhead()
+# Mainloop prevents the map from closing automatically
     turtle.mainloop()
 
     
 def iss_overhead():
+# Coordinates for location we want to check when ISS will next be overhead
     lat = 51.0305632
     lon = -3.1091860000000224
 
+# Set a marker at this location and hide the turtle
     location = turtle.Turtle()
     location.penup()
     location.color('yellow')
@@ -76,13 +82,15 @@ def iss_overhead():
     location.dot(5)
     location.hideturtle()
 
+# Call web service to check ISS location at given coordinates
     result = web_service_interface('http://api.open-notify.org/iss-pass.json', lat, lon)
+
+# Convert timestamp to readable time and print onto map at the marker location
     over = time.ctime(result['response'][1]['risetime'])
     style = ('Arial', 6, 'bold')
     location.write(over, font=style)
 
     print('Next over Craig Lea: ' + over)
-
 
 iss_people()
 iss_location()
