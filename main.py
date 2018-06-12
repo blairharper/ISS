@@ -1,4 +1,8 @@
 #!/bin/python3
+# Simple python program that uses the open-notify.org web api
+# to obtain information about the current crew and location of 
+# the international space station.
+# Plots current location on map as well as next overhead time for given coords.
 
 import json
 import turtle
@@ -7,6 +11,9 @@ from urllib.request import urlopen
 
 # Interface to pull results from web api
 def web_service_interface(url, lat = 0, lon = 0):
+# Check if coordinates have been supplied
+# If so it means function has been called by iss_overhead function
+# and we want to parse coordinates onto the URL
     if (lat > 0) and ((lon > 0) or (lon < 0)):
         url = url + '?lat=' + str(lat) + '&lon=' + str(lon)
     response = urlopen(url)
