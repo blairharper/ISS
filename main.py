@@ -14,7 +14,7 @@ def web_service_interface(url, lat = 0, lon = 0):
 # Check if coordinates have been supplied
 # If so it means function has been called by iss_overhead function
 # and we want to parse coordinates onto the URL
-    if (lat > 0) and ((lon > 0) or (lon < 0)):
+    if ((lat > 0) or (lat < 0)) and ((lon > 0) or (lon < 0)):
         url = url + '?lat=' + str(lat) + '&lon=' + str(lon)
     response = urlopen(url)
     result = json.loads(response.read())
