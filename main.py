@@ -2,7 +2,7 @@
 # Simple python program that uses the open-notify.org web api
 # to obtain information about the current crew and location of 
 # the international space station.
-# Plots current location on map as well as next overhead time for given coords.
+# Plots current location on map as well as next overhead time for Taunton, UK
 
 import json
 import turtle
