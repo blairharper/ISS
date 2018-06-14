@@ -74,7 +74,7 @@ def iss_location():
 # Call function to check when ISS is next overhead
 # Call it here so we can use the same map
     iss_overhead()
-    
+
 # Mainloop prevents the map from closing automatically
     turtle.mainloop()
 
@@ -84,7 +84,7 @@ def iss_overhead():
     lat = 51.0305632
     lon = -3.1091860000000224
 
-# Set a marker at this location and hide the turtle
+# Set a marker (dot) at this location and hide the turtle
     location = turtle.Turtle()
     location.penup()
     location.color('yellow')
